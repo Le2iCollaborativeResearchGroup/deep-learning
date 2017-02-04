@@ -3,7 +3,9 @@
 This repository is related to the install of some package related to
 deep-learning
 
-## Prerequisite
+## Keras using Theano or TensorFlow
+
+### Prerequisite
 
 Install a miniconda on your session by following the help [there](
 https://github.com/MickeyMouseScienceReadingGroup/deep-learning)
@@ -26,7 +28,7 @@ export CUDA_HOME="/usr/local/cuda-8.0"
 export CUDA_VISIBLE_DEVICES="GPU-c213bb11-596c-604d-4636-b48995a5a125"
 ```
 
-## TensorFlow
+### TensorFlow (Google)
 
 You can find the full documentation [there](
 https://www.tensorflow.org/get_started/os_setup)
@@ -54,7 +56,7 @@ export TF_BINARY_URL=https://storage.googleapis.com/tensorflow/linux/gpu/tensorf
 pip install --ignore-installed --upgrade $TF_BINARY_URL
 ```
 
-## Theano
+### Theano (Bengio)
 
 In the same environment install Theano using pip:
 
@@ -62,7 +64,7 @@ In the same environment install Theano using pip:
 pip install Theano
 ```
 
-## Keras
+### Keras (Google - Chollet)
 
 In the same environment install Keras using pip:
 
@@ -70,24 +72,27 @@ In the same environment install Keras using pip:
 pip install keras
 ```
 
-## Switch backend in Keras:
+#### Switch backend in Keras:
 
 You can edit `~.keras/keras.json` where you can modify the backend:
 
 ``` json
+{
     "image_dim_ordering": "th",
     "backend": "theano"
+}
 ```
 
 or
 
 ``` json
+{
     "image_dim_ordering": "tf",
     "backend": "tensorflow"
+}
 ```
 
-
-## Test your install
+#### Test your install
 
 You can test your install with the following script with Theano as backend.
 
@@ -144,3 +149,24 @@ score = model.evaluate(X_test, Y_test, verbose=0)
 ```
 
 Execute the script with `ipython`
+
+
+## Pytorch (Facebook)
+
+* Create a new environment with conda and activate the environment:
+
+```
+conda create -n pytorch python=2.7
+source activate pytorch
+
+```
+
+* Install Pytorch using conda:
+
+```
+conda install pytorch torchvision cuda80 -c soumith
+```
+
+### Tutorial
+
+A list of tutorial is available [there](https://github.com/pytorch/tutorials)
